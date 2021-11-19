@@ -50,12 +50,18 @@ BOARDS += nrf52840dk_nrf52840
 BOARDS += nrf52840dongle_nrf52840
 
 TARGETS := $(patsubst %,build.%/hci_usb_h4/zephyr/zephyr.hex,$(BOARDS))
+TARGETS += build.nrf52840dongle_nrf52840/hci_usb_h4/zephyr/zephyr-nrfpkg.zip
 
 build.%/hci_usb_h4/zephyr/zephyr.hex: check-zephyr
 	source $(ZEPHYR_ROOT)/zephyr-env.sh ; \
 	west build --build-dir build.$*/hci_usb_h4 --pristine auto \
 	--board $* $(ZEPHYR_ROOT)/samples/bluetooth/hci_usb_h4 -- \
 	-DBOARD_ROOT="$(ZEPHYR_BOARD_ROOT)"
+
+%/zephyr-nrfpkg.zip: %/zephyr.hex
+	nrfutil pkg generate --hw-version 52 --sd-req=0x00 \
+	  --application $+ \
+	  --application-version 1 $@
 
 .PHONY: versions
 versions:
@@ -91,6 +97,7 @@ endif
 dist: dist-clean dist-prep build
 	install -m 666 build.nrf52840dk_nrf52840/hci_usb_h4/zephyr/zephyr.hex dist/hci_usb_h4-nrf52840dk-$(ZEPHYR_TAG).hex
 	install -m 666 build.nrf52840dongle_nrf52840/hci_usb_h4/zephyr/zephyr.hex dist/hci_usb_h4-nrf52840dongle-$(ZEPHYR_TAG).hex
+	install -m 666 build.nrf52840dongle_nrf52840/hci_usb_h4/zephyr/zephyr-nrfpkg.zip dist/hci_usb_h4-nrf52840dongle-$(ZEPHYR_TAG)-nrfpkg.zip
 
 .PHONY: docker
 docker: dist-prep
