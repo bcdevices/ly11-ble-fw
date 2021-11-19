@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: None
+# SPDX-License-Identifier: Apache-2.0
 #
 # Copyright (c) 2021 Blue Clover Devices
 #
@@ -50,7 +50,7 @@ BOARDS += nrf52840dk_nrf52840
 BOARDS += nrf52840dongle_nrf52840
 
 TARGETS := $(patsubst %,build.%/hci_usb_h4/zephyr/zephyr.hex,$(BOARDS))
-TARGETS += build.nrf52840dongle_nrf52840/hci_usb_h4/zephyr/zephyr-nrfpkg.zip
+TARGETS += build.nrf52840dongle_nrf52840/hci_usb_h4/zephyr/zephyr-dfu.zip
 
 build.%/hci_usb_h4/zephyr/zephyr.hex: check-zephyr
 	source $(ZEPHYR_ROOT)/zephyr-env.sh ; \
@@ -58,7 +58,7 @@ build.%/hci_usb_h4/zephyr/zephyr.hex: check-zephyr
 	--board $* $(ZEPHYR_ROOT)/samples/bluetooth/hci_usb_h4 -- \
 	-DBOARD_ROOT="$(ZEPHYR_BOARD_ROOT)"
 
-%/zephyr-nrfpkg.zip: %/zephyr.hex
+%/zephyr-dfu.zip: %/zephyr.hex
 	nrfutil pkg generate --hw-version 52 --sd-req=0x00 \
 	  --application $+ \
 	  --application-version 1 $@
@@ -97,7 +97,7 @@ endif
 dist: dist-clean dist-prep build
 	install -m 666 build.nrf52840dk_nrf52840/hci_usb_h4/zephyr/zephyr.hex dist/hci_usb_h4-nrf52840dk-$(ZEPHYR_TAG).hex
 	install -m 666 build.nrf52840dongle_nrf52840/hci_usb_h4/zephyr/zephyr.hex dist/hci_usb_h4-nrf52840dongle-$(ZEPHYR_TAG).hex
-	install -m 666 build.nrf52840dongle_nrf52840/hci_usb_h4/zephyr/zephyr-nrfpkg.zip dist/hci_usb_h4-nrf52840dongle-$(ZEPHYR_TAG)-nrfpkg.zip
+	install -m 666 build.nrf52840dongle_nrf52840/hci_usb_h4/zephyr/zephyr-dfu.zip dist/hci_usb_h4-nrf52840dongle-$(ZEPHYR_TAG)-dfu.zip
 
 .PHONY: docker
 docker: dist-prep
