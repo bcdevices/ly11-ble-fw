@@ -25,24 +25,40 @@ refer to `nRF52840 Dongle — Zephyr Project Documentation <https://docs.zephyrp
    The red LED should start a fade pattern, signalling the bootloader is
    running.
 
-#. Flash the `.zip` file onto the board.
+#. Flash the DFU package onto the board.
    
-   .. note::
+   .. code-block:: shell
 
-      :file:`/dev/ttyACM0` is for Linux; it will be
-      something like ``COMx`` on Windows, and something else on macOS.
+      nrfutil dfu usb-serial -pkg hci_usb_h4-nrf52840dongle-2.7.0-dfu.zip -p /dev/ttyACM0
 
    .. code-block:: console
 
-      nrfutil dfu usb-serial -pkg nrf52840dongle-hci_usb_h4-2.7.0.zip -p /dev/ttyACM0
+      $ nrfutil dfu usb-serial -pkg hci_usb_h4-nrf52840dongle-2.7.0-dfu.zip -p /dev/ttyACM0
+      [####################################]  100%
+      Device programmed.
+      $
 
-   When this command exits, observe the green LED on the board blinking,
-   instead of the red LED used by the bootloader.
+   When this command exits, observe the red LED used by the bootloader stops blinking.
 
-For more information, see `Nordic Semiconductor USB DFU`_.
+
+#. Re-insert the nRF52840 Dongle, and check if the dongle enumerates
+   as a HCI H4 over USB device.
+
+   .. code-block:: console
+
+      $ lsusb
+      Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+      Bus 001 Device 003: ID 04f2:b685 Chicony Electronics Co., Ltd Chicony USB2.0 Camera
+      Bus 001 Device 004: ID 8087:0aaa Intel Corp.
+      Bus 001 Device 029: ID 2fe3:000c ZEPHYR USB-DEV
+      Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+      $
 
 References
 **********
+
+- `nRF52840 Dongle website`_
+- `Nordic Semiconductor USB DFU`_.
 
 .. _nRF52840 Dongle website:
    https://www.nordicsemi.com/Software-and-Tools/Development-Kits/nRF52840-Dongle
