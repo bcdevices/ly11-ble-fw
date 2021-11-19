@@ -23,6 +23,7 @@ Firmware for BLE dongles for use with PLT-300A.
 
 - Linux hosts or Apple Mac computer running macOS
 - [Getting Started Guide — Zephyr Project Documentation](https://docs.zephyrproject.org/latest/getting_started/index.html)
+- [nrfutil](https://github.com/NordicSemiconductor/pc-nrfutil)
 
 ### Local build instructions
 
