@@ -1,0 +1,25 @@
+name: Main
+on: push
+
+jobs:
+  build:
+    name: Build and Upload
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        # Number of commits to fetch. 0 indicates all history for all branches and tags.
+        # Default: 1
+        fetch-depth: '0'
+    - name: Gen version
+      run:  ./GIT-VERSION-GEN
+    - name: Build
+      uses: ./.github/actions/action-zephyr
+    - name: Upload Release
+      uses: meeDamian/github-release@2.0
+      if: contains(github.ref, 'tags')
+      with:
+        token: ${{secrets.GITHUB_TOKEN}}
+        files: dist/*
+        gzip: false
