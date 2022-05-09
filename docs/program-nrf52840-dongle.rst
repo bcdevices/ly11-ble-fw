@@ -80,6 +80,21 @@ Using nrfutil
 
 #. If you haven't already, follow the directions above to put the nRF52840-Dongle into the factory-default bootloader. 
 
+#. Flash the DFU package onto the board.
+   
+   .. code-block:: shell
+
+      nrfutil dfu usb-serial -pkg hci_usb_h4-nrf52840dongle-2.7.0-dfu.zip -p /dev/ttyACM0
+
+   .. code-block:: console
+
+      $ nrfutil dfu usb-serial -pkg hci_usb_h4-nrf52840dongle-2.7.0-dfu.zip -p /dev/ttyACM0
+      [####################################]  100%
+      Device programmed.
+      $
+
+   When this command exits, observe the red LED used by the bootloader stops blinking.
+
 #. Re-insert the nRF52840 Dongle, and check if the dongle enumerates
    as a HCI H4 over USB device.
 
