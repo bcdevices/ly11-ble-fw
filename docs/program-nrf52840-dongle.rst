@@ -13,8 +13,8 @@ For other methods, please refer to `nRF52840 Dongle — Zephyr Project Documenta
 
 These instructions cover two ways to program the device:
 
-#. Using `Nordic nRF Connect for Desktop`_ to program the `hci_usb_h4-nrf52840dongle-2.7.0.hex` file.
-#. Using `nrfutil`_ to program the `hci_usb_h4-nrf52840dongle-2.7.0-dfu.zip` file.
+#. Using `Nordic nRF Connect for Desktop`_ to program the `hci_usb_h4-nrf52840dongle-2.7.0.hex`_ file.
+#. Using `nrfutil`_ to program the `hci_usb_h4-nrf52840dongle-2.7.0-dfu.zip`_ file.
 
 In both cases, you will first need to put the nRF52840-Dongle Board into the factory bootloader:
 
@@ -67,6 +67,7 @@ Using Nordic nRF Connect for Desktop
       :alt: Click the "Write" button.
 
 #. The LED on the dongle will blink more rapidly as it is programmed. When programming is complete, the device will disconnect from nRF Connect for Desktop. The LED will no longer blink after being programmed.
+#. There may be an error message in nRF Connect for Desktop after the device disconnects, it can be ignored.
 #. You can verify that the BLE firmware is running by looking for the USB device. Make sure that a device with PID/VID 0x000c/0x2fe3 is enumerating. On macOS, you can use the System Information tool:
 
    .. image:: img/06_system_information.png
@@ -122,3 +123,7 @@ References
    https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop
 .. _nrfutil:
    https://github.com/NordicSemiconductor/pc-nrfutil
+.. _hci_usb_h4-nrf52840dongle-2.7.0.hex:
+   https://github.com/bcdevices/ly11-ble-fw/releases/download/v1.0.0/hci_usb_h4-nrf52840dongle-2.7.0.hex
+.. _hci_usb_h4-nrf52840dongle-2.7.0-dfu.zip:
+   https://github.com/bcdevices/ly11-ble-fw/releases/download/v1.0.0/hci_usb_h4-nrf52840dongle-2.7.0-dfu.zip
