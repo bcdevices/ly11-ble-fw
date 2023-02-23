@@ -124,6 +124,6 @@ References
 .. _nrfutil:
    https://github.com/NordicSemiconductor/pc-nrfutil
 .. _hci_usb_h4-nrf52840dongle-2.7.0.hex:
-   https://github.com/bcdevices/ly11-ble-fw/releases/download/v1.0.0/hci_usb_h4-nrf52840dongle-2.7.0.hex
+   https://github.com/bcdevices/ly11-ble-fw/releases/download/v1.1.0/hci_usb_h4-nrf52840dongle-2.7.0.hex
 .. _hci_usb_h4-nrf52840dongle-2.7.0-dfu.zip:
-   https://github.com/bcdevices/ly11-ble-fw/releases/download/v1.0.0/hci_usb_h4-nrf52840dongle-2.7.0-dfu.zip
+   https://github.com/bcdevices/ly11-ble-fw/releases/download/v1.1.0/hci_usb_h4-nrf52840dongle-2.7.0-dfu.zip

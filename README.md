@@ -1,14 +1,23 @@
 # ly11-ble-fw
 
-Firmware images for BLE dongles, for use with PLT-300A.
+Firmware images for BLE dongles, allowing these to be used for
+[BLE Testing](https://docs.pltcloud.com/TestPlanReference/ble/)
+with the [PLT-300A](https://bcdevices.com/pages/plt-300a).
 
-- Build platform: macOS, Linux
-- Host platform: PLT-300A
-- Target platform: nRF52840DK (PCA10056), nRF52840-DONGLE (PCA10059)
+- [RF52840-DONGLE (PCA10059)](https://docs.pltcloud.com/peripheral/ble/nrf52840-dongle/)
+  **hci_usb_h4** firmware image
+  ([DFU](https://github.com/bcdevices/ly11-ble-fw/releases/download/v1.1.0/hci_usb_h4-nrf52840dongle-2.7.0-dfu.zip))
+  ([.hex](https://github.com/bcdevices/ly11-ble-fw/releases/download/v1.1.0/hci_usb_h4-nrf52840dongle-2.7.0.hex))
 
-These firmware images are built from the 
-[Bluetooth: HCI H4 over USB — Zephyr Project Documentation](https://docs.zephyrproject.org/2.7.0/samples/bluetooth/hci_usb_h4/README.html)
+- [nRF52840DK (PCA10056)](https://docs.zephyrproject.org/3.0.0/boards/arm/nrf52840dk_nrf52840/doc/index.html)
+  **hci_usb_h4** firmware image
+  ([.hex](https://github.com/bcdevices/ly11-ble-fw/releases/download/v1.1.0/hci_usb_h4-nrf52840dk-2.7.0.hex))
+
+These **hci_usb_h4** firmware images can be built from the source code of the
+[Bluetooth: HCI H4 over USB](https://docs.zephyrproject.org/2.7.0/samples/bluetooth/hci_usb_h4/README.html)
 sample project of the [Zephyr](https://zephyrproject.org/) RTOS.
+
+## Dongle Programming
 
 - [nRF52840-DONGLE Programming instuctions](docs/program-nrf52840-dongle.rst)
 
