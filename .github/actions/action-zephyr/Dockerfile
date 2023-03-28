@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-FROM ghcr.io/bcdevices/zephyr:2.7.0-1
+FROM ghcr.io/bcdevices/zephyr:v3.3.0-7
 
 RUN pip3 install --no-cache-dir nrfutil
 
