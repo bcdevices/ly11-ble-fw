@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: Apache-2.0
 #
-# Copyright (c) 2020-2021 Blue Clover Devices
+# Copyright (c) 2020-2023 Blue Clover Devices
 
-FROM ghcr.io/bcdevices/zephyr:v3.3.0-7
+FROM ghcr.io/bcdevices/zephyr:v3.4.0-0
 
 RUN pip3 install --no-cache-dir nrfutil
 
