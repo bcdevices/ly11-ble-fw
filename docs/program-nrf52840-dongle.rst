@@ -13,8 +13,8 @@ For other methods, please refer to `nRF52840 Dongle — Zephyr Project Documenta
 
 These instructions cover two ways to program the device:
 
-#. Using `Nordic nRF Connect for Desktop`_ to program the `hci_usb_h4-nrf52840dongle-2.7.0.hex`_ file.
-#. Using `nrfutil`_ to program the `hci_usb_h4-nrf52840dongle-2.7.0-dfu.zip`_ file.
+#. Using `Nordic nRF Connect for Desktop`_ to program the `hci_usb_h4-nrf52840dongle-3.4.0.hex` file.
+#. Using `nrfutil`_ to program the `hci_usb_h4-nrf52840dongle-3.4.0-dfu.zip` file.
 
 In both cases, you will first need to put the nRF52840-Dongle Board into the factory bootloader:
 
@@ -56,12 +56,12 @@ Using Nordic nRF Connect for Desktop
    .. image:: img/03_open_dfu_bootloader.png
       :alt: Click the "Open DFU Bootloader" device.
 
-#. Now, either click the "Add File" button to browse for the `hci_usb_h4-nrf52840dongle-2.7.0.hex` file, or drag it to the Drag & Drop area.
+#. Now, either click the "Add File" button to browse for the `hci_usb_h4-nrf52840dongle-3.4.0.hex` file, or drag it to the Drag & Drop area.
 
    .. image:: img/04_add_file.png
       :alt: Add File
 
-#. With the `hci_usb_h4-nrf52840dongle-2.7.0.hex` file selected, you can now click the "Write" button to program the dongle.
+#. With the `hci_usb_h4-nrf52840dongle-3.4.0.hex` file selected, you can now click the "Write" button to program the dongle.
 
    .. image:: img/05_write.png
       :alt: Click the "Write" button.
@@ -85,11 +85,11 @@ Using nrfutil
    
    .. code-block:: shell
 
-      nrfutil dfu usb-serial -pkg hci_usb_h4-nrf52840dongle-2.7.0-dfu.zip -p /dev/ttyACM0
+      nrfutil dfu usb-serial -pkg hci_usb_h4-nrf52840dongle-3.4.0-dfu.zip -p /dev/ttyACM0
 
    .. code-block:: console
 
-      $ nrfutil dfu usb-serial -pkg hci_usb_h4-nrf52840dongle-2.7.0-dfu.zip -p /dev/ttyACM0
+      $ nrfutil dfu usb-serial -pkg hci_usb_h4-nrf52840dongle-3.4.0-dfu.zip -p /dev/ttyACM0
       [####################################]  100%
       Device programmed.
       $
@@ -123,7 +123,3 @@ References
    https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop
 .. _nrfutil:
    https://github.com/NordicSemiconductor/pc-nrfutil
-.. _hci_usb_h4-nrf52840dongle-2.7.0.hex:
-   https://github.com/bcdevices/ly11-ble-fw/releases/download/v1.1.0/hci_usb_h4-nrf52840dongle-2.7.0.hex
-.. _hci_usb_h4-nrf52840dongle-2.7.0-dfu.zip:
-   https://github.com/bcdevices/ly11-ble-fw/releases/download/v1.1.0/hci_usb_h4-nrf52840dongle-2.7.0-dfu.zip
