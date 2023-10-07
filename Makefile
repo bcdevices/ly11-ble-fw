@@ -27,7 +27,7 @@ DOCKER_BUILD_ARGS += --network=host
 DOCKER_RUN_ARGS :=
 DOCKER_RUN_ARGS += --network=none
 
-ZEPHYR_TAG := 3.4.0
+ZEPHYR_TAG := 3.5.0-rc2
 ZEPHYR_SYSROOT := /usr/src/zephyr-$(ZEPHYR_TAG)/zephyr
 ZEPHYR_USRROOT := $(HOME)/src/zephyr-$(ZEPHYR_TAG)/zephyr
 
@@ -56,7 +56,10 @@ build.%/hci_usb_h4/zephyr/zephyr.hex: check-zephyr
 	source $(ZEPHYR_ROOT)/zephyr-env.sh ; \
 	west build --build-dir build.$*/hci_usb_h4 --pristine auto \
 	--board $* $(ZEPHYR_ROOT)/samples/bluetooth/hci_usb_h4 \
-	-DCONFIG_BT_CTLR_DTM_HCI=y
+	-DCONFIG_LOG=y \
+	-DCONFIG_BT=y \
+	-DCONFIG_BT_CTLR_DTM_HCI=y \
+	-DCONFIG_BT_DEBUG_HCI_DRIVER=y
 
 %/zephyr-dfu.zip: %/zephyr.hex
 	nrfutil pkg generate --hw-version 52 --sd-req=0x00 \

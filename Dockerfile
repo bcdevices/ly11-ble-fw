@@ -2,7 +2,7 @@
 #
 # Copyright (c) 2020-2023 Blue Clover Devices
 
-FROM ghcr.io/bcdevices/zephyr:v3.4.0-0
+FROM ghcr.io/bcdevices/zephyr:v3.5.0-rc2-0
 
 RUN pip3 install --no-cache-dir nrfutil
 
