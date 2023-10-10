@@ -46,6 +46,7 @@ endif
 ZEPHYR_BOARD_ROOT := $(BASE_PATH)
 
 BOARDS :=
+BOARDS += adafruit_feather_nrf52840
 BOARDS += nrf52840dk_nrf52840
 BOARDS += nrf52840dongle_nrf52840
 
@@ -95,6 +96,7 @@ endif
 
 .PHONY: dist
 dist: dist-clean dist-prep build
+	install -m 666 build.adafruit_feather_nrf52840/hci_usb_h4/zephyr/zephyr.hex dist/hci_usb_h4-adafruit_feather_nrf52840-$(ZEPHYR_TAG).hex
 	install -m 666 build.nrf52840dk_nrf52840/hci_usb_h4/zephyr/zephyr.hex dist/hci_usb_h4-nrf52840dk-$(ZEPHYR_TAG).hex
 	install -m 666 build.nrf52840dongle_nrf52840/hci_usb_h4/zephyr/zephyr.hex dist/hci_usb_h4-nrf52840dongle-$(ZEPHYR_TAG).hex
 	install -m 666 build.nrf52840dongle_nrf52840/hci_usb_h4/zephyr/zephyr-dfu.zip dist/hci_usb_h4-nrf52840dongle-$(ZEPHYR_TAG)-dfu.zip
