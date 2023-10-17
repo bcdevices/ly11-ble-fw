@@ -10,7 +10,8 @@ on:
 jobs:
   build:
     name: Build and Upload
-    runs-on: zephyr-runner
+    runs-on: 
+      group: zephyr-builds
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
