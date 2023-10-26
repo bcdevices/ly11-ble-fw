@@ -56,7 +56,8 @@ TARGETS += build.nrf52840dongle_nrf52840/hci_usb_h4/zephyr/zephyr-dfu.zip
 build.%/hci_usb_h4/zephyr/zephyr.hex: check-zephyr
 	source $(ZEPHYR_ROOT)/zephyr-env.sh ; \
 	west build --build-dir build.$*/hci_usb_h4 --pristine auto \
-	--board $*
+	--board $* \
+	-- -DCONFIG_USB_DEVICE_PRODUCT=\"$(PRJTAG)-v$(VERSION_TAG)\"
 
 %/zephyr-dfu.zip: %/zephyr.hex
 	nrfutil pkg generate --hw-version 52 --sd-req=0x00 \
